@@ -75,10 +75,10 @@ const getStudentsPerSubject = asyncHandler(async (req, res) => {
 
 });
 
-//@description     Create Student
+//@description     create Student
 //@route           POST /api/Student/create
 //@access          Private
-const CreateStudent = asyncHandler(async (req, res) => {
+const createStudent = asyncHandler(async (req, res) => {
   const { rollno, name, degreeEnrolled, address, url, grade, enrolledDate, course, university } = req.body;
   if (!rollno || !name) {
     res.status(400);
@@ -92,10 +92,10 @@ const CreateStudent = asyncHandler(async (req, res) => {
   }
 });
 
-//@description     Delete Student
+//@description     delete Student
 //@route           DELETE /api/Student/:rollno
 
-const DeleteStudent = asyncHandler(async (req, res) => {
+const deleteStudent = asyncHandler(async (req, res) => {
   const student = await Student.find({rollno: req.params.rollno});
 
   if (student[0]) {
@@ -107,10 +107,10 @@ const DeleteStudent = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Update an Student
+// @desc    update an Student
 // @route   PUT /api/Student/:rollno
 
-const UpdateStudent = asyncHandler(async (req, res) => {
+const updateStudent = asyncHandler(async (req, res) => {
   const { name, degreeEnrolled, address, url, grade, enrolledDate, course, university } = req.body;
 
   const student = await Student.find({rollno: req.params.rollno});
@@ -134,4 +134,4 @@ const UpdateStudent = asyncHandler(async (req, res) => {
   }
 });
 
-export { getStudentByRollno, getStudents, getStudentsPerUniversity, getStudentsPerSubject, CreateStudent, DeleteStudent, UpdateStudent };
+export { getStudentByRollno, getStudents, getStudentsPerUniversity, getStudentsPerSubject, createStudent, deleteStudent, updateStudent };

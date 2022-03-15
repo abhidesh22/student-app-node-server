@@ -166,10 +166,10 @@ const getUniversities = asyncHandler(async (req, res) =&gt; {
   res.json(universities);
 });
 &nbsp;
-//@description     Create University
+//@description     create University
 //@route           POST /api/University/create
 //@access          Private
-const CreateUniversity = asyncHandler(async (req, res) =&gt; {
+const createUniversity = asyncHandler(async (req, res) =&gt; {
   const { name, type, Address, url, totalstudents, establishedDate, courses } = req.body;
   let coursesArray = [courses];
   <span class="missing-if-branch" title="if path not taken" >I</span>if (!name || !type) {
@@ -185,10 +185,10 @@ const CreateUniversity = asyncHandler(async (req, res) =&gt; {
   }
 });
 &nbsp;
-//@description     Delete University
+//@description     delete University
 //@route           DELETE /api/University/:title
 &nbsp;
-const DeleteUniversity = asyncHandler(async (req, res) =&gt; {
+const deleteUniversity = asyncHandler(async (req, res) =&gt; {
   const university = await University.find({name: req.params.name});
 &nbsp;
   if (university[0]) {
@@ -200,7 +200,7 @@ const DeleteUniversity = asyncHandler(async (req, res) =&gt; {
   }
 });
 &nbsp;
-export { getUniversities, DeleteUniversity, CreateUniversity };
+export { getUniversities, deleteUniversity, createUniversity };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

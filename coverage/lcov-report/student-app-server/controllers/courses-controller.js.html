@@ -174,11 +174,11 @@ const getCourses = asyncHandler(async (req, res) =&gt; {
   res.sendStatus(200);
 });
 &nbsp;
-//@description     Create Course
+//@description     create Course
 //@route           POST /api/courses/create
 //@access          Private
 &nbsp;
-const CreateCourse = asyncHandler(async (req, res) =&gt; {
+const createCourse = asyncHandler(async (req, res) =&gt; {
   const { name, type, subjects } = req.body;
   let subjectArray = subjects.split(';');
   <span class="missing-if-branch" title="if path not taken" >I</span>if (!name || !type|| !subjects) {
@@ -199,7 +199,7 @@ const CreateCourse = asyncHandler(async (req, res) =&gt; {
 //@route           DELETE /api/courses/:name
 //@access          Private
 &nbsp;
-const DeleteCourse = asyncHandler(async (req, res) =&gt; {
+const deleteCourse = asyncHandler(async (req, res) =&gt; {
   const course = await Course.find({name: req.params.name});
 &nbsp;
   if (course[0]) {
@@ -212,7 +212,7 @@ const DeleteCourse = asyncHandler(async (req, res) =&gt; {
   }
 });
 &nbsp;
-export { getCourses, CreateCourse, DeleteCourse };
+export { getCourses, createCourse, deleteCourse };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

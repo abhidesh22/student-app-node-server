@@ -4,9 +4,9 @@ import express from "express";
 import {
   getStudentByRollno,
   getStudents,
-  CreateStudent,
-  DeleteStudent,
-  UpdateStudent,
+  createStudent,
+  deleteStudent,
+  updateStudent,
   getStudentsPerUniversity,
   getStudentsPerSubject
 } from "../controllers/students-controller.js";
@@ -18,8 +18,8 @@ router.route("/").get(getStudents);
 router
   .route("/:rollno")
   .get(getStudentByRollno)
-  .delete(DeleteStudent)
-  .put(UpdateStudent);
+  .delete(deleteStudent)
+  .put(updateStudent);
 
 router
   .route("/byuni/:id")
@@ -29,6 +29,6 @@ router
   .route("/bysubject/:id")
   .get(getStudentsPerSubject)
 
-router.route("/create").post(CreateStudent);
+router.route("/create").post(createStudent);
 router.use(notFound);
 export default router;

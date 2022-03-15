@@ -3,17 +3,17 @@
 import express from "express";
 import {
   getCourses,
-  CreateCourse,
-  DeleteCourse
+  createCourse,
+  deleteCourse
 } from "../controllers/courses-controller.js";
 import { notFound } from "../middleware/error-handler.js";
 
 const router = express.Router();
 
 router.route("/").get(getCourses);
-router.route("/create").post(CreateCourse);
+router.route("/create").post(createCourse);
 router
   .route("/:name")
-  .delete(DeleteCourse);
+  .delete(deleteCourse);
 router.use(notFound);
 export default router;

@@ -9,11 +9,11 @@ const getCourses = asyncHandler(async (req, res) => {
   res.sendStatus(200);
 });
 
-//@description     Create Course
+//@description     create Course
 //@route           POST /api/courses/create
 //@access          Private
 
-const CreateCourse = asyncHandler(async (req, res) => {
+const createCourse = asyncHandler(async (req, res) => {
   const { name, type, subjects } = req.body;
   let subjectArray = subjects.split(';');
   if (!name || !type|| !subjects) {
@@ -34,7 +34,7 @@ const CreateCourse = asyncHandler(async (req, res) => {
 //@route           DELETE /api/courses/:name
 //@access          Private
 
-const DeleteCourse = asyncHandler(async (req, res) => {
+const deleteCourse = asyncHandler(async (req, res) => {
   const course = await Course.find({name: req.params.name});
 
   if (course[0]) {
@@ -47,4 +47,4 @@ const DeleteCourse = asyncHandler(async (req, res) => {
   }
 });
 
-export { getCourses, CreateCourse, DeleteCourse };
+export { getCourses, createCourse, deleteCourse };

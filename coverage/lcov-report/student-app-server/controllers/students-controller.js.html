@@ -414,10 +414,10 @@ const getStudentsPerSubject = asyncHandler(async (req, res) =&gt; {
 &nbsp;
 });
 &nbsp;
-//@description     Create Student
+//@description     create Student
 //@route           POST /api/Student/create
 //@access          Private
-const CreateStudent = asyncHandler(async (req, res) =&gt; {
+const createStudent = asyncHandler(async (req, res) =&gt; {
   const { rollno, name, degreeEnrolled, address, url, grade, enrolledDate, course, university } = req.body;
   <span class="missing-if-branch" title="if path not taken" >I</span>if (!rollno || !name) {
 <span class="cstat-no" title="statement not covered" >    res.status(400);</span>
@@ -431,10 +431,10 @@ const CreateStudent = asyncHandler(async (req, res) =&gt; {
   }
 });
 &nbsp;
-//@description     Delete Student
+//@description     delete Student
 //@route           DELETE /api/Student/:rollno
 &nbsp;
-const DeleteStudent = asyncHandler(async (req, res) =&gt; {
+const deleteStudent = asyncHandler(async (req, res) =&gt; {
   const student = await Student.find({rollno: req.params.rollno});
 &nbsp;
   if (student[0]) {
@@ -446,10 +446,10 @@ const DeleteStudent = asyncHandler(async (req, res) =&gt; {
   }
 });
 &nbsp;
-// @desc    Update an Student
+// @desc    update an Student
 // @route   PUT /api/Student/:rollno
 &nbsp;
-const UpdateStudent = asyncHandler(async (req, res) =&gt; {
+const updateStudent = asyncHandler(async (req, res) =&gt; {
   const { name, degreeEnrolled, address, url, grade, enrolledDate, course, university } = req.body;
 &nbsp;
   const student = await Student.find({rollno: req.params.rollno});
@@ -473,7 +473,7 @@ const UpdateStudent = asyncHandler(async (req, res) =&gt; {
   }
 });
 &nbsp;
-export { getStudentByRollno, getStudents, getStudentsPerUniversity, getStudentsPerSubject, CreateStudent, DeleteStudent, UpdateStudent };
+export { getStudentByRollno, getStudents, getStudentsPerUniversity, getStudentsPerSubject, createStudent, deleteStudent, updateStudent };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

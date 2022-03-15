@@ -104,18 +104,18 @@
 import express from "express";
 import {
   getCourses,
-  CreateCourse,
-  DeleteCourse
+  createCourse,
+  deleteCourse
 } from "../controllers/courses-controller.js";
 import { notFound } from "../middleware/error-handler.js";
 &nbsp;
 const router = express.Router();
 &nbsp;
 router.route("/").get(getCourses);
-router.route("/create").post(CreateCourse);
+router.route("/create").post(createCourse);
 router
   .route("/:name")
-  .delete(DeleteCourse);
+  .delete(deleteCourse);
 router.use(notFound);
 export default router;</pre></td></tr></table></pre>
 

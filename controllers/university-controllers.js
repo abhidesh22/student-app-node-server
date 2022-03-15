@@ -9,10 +9,10 @@ const getUniversities = asyncHandler(async (req, res) => {
   res.json(universities);
 });
 
-//@description     Create University
+//@description     create University
 //@route           POST /api/University/create
 //@access          Private
-const CreateUniversity = asyncHandler(async (req, res) => {
+const createUniversity = asyncHandler(async (req, res) => {
   const { name, type, Address, url, totalstudents, establishedDate, courses } = req.body;
   let coursesArray = [courses];
   if (!name || !type) {
@@ -28,10 +28,10 @@ const CreateUniversity = asyncHandler(async (req, res) => {
   }
 });
 
-//@description     Delete University
+//@description     delete University
 //@route           DELETE /api/University/:title
 
-const DeleteUniversity = asyncHandler(async (req, res) => {
+const deleteUniversity = asyncHandler(async (req, res) => {
   const university = await University.find({name: req.params.name});
 
   if (university[0]) {
@@ -43,4 +43,4 @@ const DeleteUniversity = asyncHandler(async (req, res) => {
   }
 });
 
-export { getUniversities, DeleteUniversity, CreateUniversity };
+export { getUniversities, deleteUniversity, createUniversity };
