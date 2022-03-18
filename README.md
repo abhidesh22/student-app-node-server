@@ -59,3 +59,6 @@ sample payload:
 5. GET /api/student/:rollno -> retrieves data for one student by rollno
 6. GET /api/student/byuni/:id -> retrieves data for all students for a given university
 7. GET /api/student/bysubject/:id -> retrieves data for average grades per course for all students in a given university
+
+hosting url:
+https://studentnodeapp.herokuapp.com/
